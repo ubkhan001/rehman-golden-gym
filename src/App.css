@@ -1,0 +1,1731 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: white;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+  width: 100%;
+  height: 82px;
+  padding: 0 60px;
+
+  background: rgba(17, 17, 17, 0.96);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+
+  backdrop-filter: blur(12px);
+}
+
+
+/* LOGO */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.logo-icon {
+  width: 45px;
+  height: 45px;
+
+  border: 2px solid #d4af37;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #d4af37;
+  font-size: 16px;
+  font-weight: 900;
+
+  transition: 0.3s ease;
+}
+
+.logo:hover .logo-icon {
+  background: #d4af37;
+  color: #111;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.logo-text strong {
+  color: white;
+  font-size: 17px;
+  letter-spacing: 2px;
+}
+
+.logo-text span {
+  color: #d4af37;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  margin-top: 5px;
+}
+
+
+/* NAV LINKS */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-links a {
+  color: #d0d0d0;
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1px;
+
+  transition: 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #d4af37;
+}
+
+
+/* NAVBAR RIGHT BUTTONS */
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+/* LOGIN */
+
+.login-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 85px;
+  padding: 11px 18px;
+
+  color: #d4af37;
+  background: transparent;
+
+  border: 1px solid #d4af37;
+  border-radius: 5px;
+
+  text-decoration: none;
+
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+
+  transition: 0.3s ease;
+}
+
+.login-btn:hover {
+  background: #d4af37;
+  color: #111;
+}
+
+
+/* SIGN UP */
+
+.signup-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 85px;
+  padding: 11px 18px;
+
+  color: #111;
+  background: #d4af37;
+
+  border: 1px solid #d4af37;
+  border-radius: 5px;
+
+  text-decoration: none;
+
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+
+  transition: 0.3s ease;
+}
+
+.signup-btn:hover {
+  background: white;
+  border-color: white;
+}
+
+
+/* JOIN NOW */
+
+.navbar-btn {
+  min-width: 120px;
+  padding: 13px 20px;
+
+  background: #d4af37;
+  color: #111;
+
+  text-decoration: none;
+  text-align: center;
+
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+
+  border-radius: 4px;
+
+  transition: 0.3s ease;
+}
+
+.navbar-btn:hover {
+  background: white;
+}
+
+
+/* MENU BUTTON */
+
+.menu-btn {
+  display: none;
+
+  width: 45px;
+  height: 45px;
+
+  background: transparent;
+  border: 1px solid #333;
+  border-radius: 4px;
+
+  color: #d4af37;
+  font-size: 24px;
+
+  cursor: pointer;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+  min-height: 100vh;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+
+  padding: 80px;
+
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+
+  max-width: 700px;
+}
+
+.hero-content h1 {
+  font-size: 68px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: 2px;
+}
+
+.hero-content h1 span {
+  color: #d4af37;
+}
+
+.hero-content p {
+  font-size: 21px;
+  margin-bottom: 35px;
+}
+
+.hero-content a {
+  display: inline-block;
+
+  background: #d4af37;
+  color: #111;
+
+  padding: 15px 32px;
+
+  text-decoration: none;
+  font-weight: bold;
+
+  border-radius: 5px;
+
+  transition: 0.3s ease;
+}
+
+.hero-content a:hover {
+  background: white;
+  transform: translateY(-3px);
+}
+
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+.about {
+  min-height: 70vh;
+
+  background: #111;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 100px 80px;
+}
+
+.about-content {
+  max-width: 800px;
+  text-align: center;
+}
+
+.section-title {
+  color: #d4af37;
+
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 3px;
+
+  margin-bottom: 15px;
+}
+
+.about-content h2 {
+  font-size: 48px;
+  margin-bottom: 25px;
+}
+
+.about-content h2 span {
+  color: #d4af37;
+}
+
+.about-content p:not(.section-title) {
+  color: #ccc;
+
+  font-size: 17px;
+  line-height: 1.8;
+
+  margin-bottom: 15px;
+}
+
+.about-content button {
+  margin-top: 20px;
+
+  padding: 14px 30px;
+
+  background: #d4af37;
+  color: #111;
+
+  border: none;
+  border-radius: 5px;
+
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+/* =====================================================
+   TRAINERS
+===================================================== */
+
+.trainers {
+  padding: 100px 60px;
+
+  background: #111;
+  color: white;
+
+  text-align: center;
+}
+
+.trainers-heading p {
+  color: #d4af37;
+
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 3px;
+
+  margin-bottom: 10px;
+}
+
+.trainers-heading h2 {
+  font-size: 42px;
+  margin-bottom: 50px;
+}
+
+.trainers-heading h2 span {
+  color: #d4af37;
+}
+
+.trainer-cards {
+  width: 100%;
+  max-width: 1000px;
+
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 30px;
+}
+
+.trainer-card {
+  background: #222;
+
+  border: 1px solid #333;
+  border-radius: 12px;
+
+  padding: 20px;
+
+  text-align: center;
+
+  transition: 0.3s ease;
+}
+
+.trainer-card:hover {
+  transform: translateY(-8px);
+  border-color: #d4af37;
+}
+
+.trainer-card img {
+  width: 100%;
+  height: 280px;
+
+  object-fit: cover;
+
+  border-radius: 10px;
+
+  margin-bottom: 20px;
+}
+
+.trainer-card h3 {
+  font-size: 23px;
+  margin-bottom: 8px;
+}
+
+.trainer-card span {
+  display: block;
+
+  color: #d4af37;
+
+  font-size: 14px;
+  font-weight: bold;
+
+  margin-bottom: 10px;
+}
+
+.trainer-card p {
+  color: #ccc;
+
+  font-size: 15px;
+  line-height: 1.6;
+
+  min-height: 72px;
+}
+
+.contact-btn {
+  display: inline-block;
+
+  margin-top: 20px;
+
+  padding: 12px 22px;
+
+  background: #d4af37;
+  color: #111;
+
+  text-decoration: none;
+  font-weight: bold;
+
+  border-radius: 6px;
+
+  transition: 0.3s ease;
+}
+
+.contact-btn:hover {
+  background: white;
+}
+
+
+/* =====================================================
+   PROGRAMS
+===================================================== */
+
+.programs {
+  background: #0b0b0b;
+
+  padding: 110px 60px;
+
+  text-align: center;
+}
+
+.programs-heading p {
+  color: #d4af37;
+
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 4px;
+
+  margin-bottom: 14px;
+}
+
+.programs-heading h2 {
+  font-size: 48px;
+  margin-bottom: 55px;
+}
+
+.programs-heading h2 span {
+  color: #d4af37;
+}
+
+.program-cards {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 22px;
+
+  max-width: 1200px;
+
+  margin: auto;
+}
+
+.program-card {
+  background: #181818;
+
+  border: 1px solid #292929;
+  border-radius: 12px;
+
+  padding: 38px 28px;
+
+  min-height: 230px;
+
+  text-align: left;
+
+  transition: 0.3s ease;
+}
+
+.program-card:hover {
+  transform: translateY(-10px);
+
+  border-color: #d4af37;
+}
+
+.program-card h3 {
+  color: #d4af37;
+
+  font-size: 23px;
+
+  margin-bottom: 14px;
+}
+
+.program-card p {
+  color: #aaa;
+
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact {
+  background: #0b0b0b;
+
+  padding: 110px 20px;
+
+  text-align: center;
+}
+
+.contact-content {
+  max-width: 900px;
+  margin: auto;
+}
+
+.contact .section-title {
+  color: #d4af37;
+
+  font-size: 13px;
+  font-weight: bold;
+
+  letter-spacing: 4px;
+
+  margin-bottom: 14px;
+}
+
+.contact h2 {
+  font-size: 48px;
+  margin-bottom: 18px;
+}
+
+.contact h2 span {
+  color: #d4af37;
+}
+
+.contact-content > p {
+  max-width: 650px;
+
+  margin: 0 auto 45px;
+
+  color: #999;
+
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+
+/* JOIN FORM */
+
+.join-form {
+  max-width: 850px;
+
+  margin: auto;
+  padding: 45px;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 20px;
+
+  text-align: left;
+
+  background: #181818;
+
+  border: 1px solid #292929;
+
+  border-radius: 16px;
+}
+
+.join-form input,
+.join-form select,
+.join-form textarea {
+  width: 100%;
+
+  padding: 16px 18px;
+
+  background: #111;
+
+  border: 1px solid #333;
+
+  color: white;
+
+  border-radius: 8px;
+
+  font-size: 15px;
+
+  outline: none;
+}
+
+.join-form input:focus,
+.join-form select:focus,
+.join-form textarea:focus {
+  border-color: #d4af37;
+}
+
+.join-form textarea {
+  min-height: 130px;
+
+  resize: vertical;
+
+  grid-column: 1 / 3;
+}
+
+.join-form button {
+  grid-column: 1 / 3;
+
+  padding: 16px;
+
+  background: #d4af37;
+  color: #111;
+
+  border: none;
+  border-radius: 8px;
+
+  font-size: 16px;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.join-form button:hover {
+  background: white;
+}
+
+
+/* SUCCESS MESSAGE */
+
+.success-message {
+  max-width: 700px;
+
+  margin: auto;
+  padding: 50px 30px;
+
+  background: #181818;
+
+  border: 1px solid #292929;
+
+  border-radius: 16px;
+}
+
+.success-message h3 {
+  color: #d4af37;
+
+  font-size: 28px;
+
+  margin-bottom: 15px;
+}
+
+.success-message p {
+  color: #aaa;
+  line-height: 1.7;
+}
+
+
+/* =====================================================
+   MEMBERSHIP PAGE
+===================================================== */
+
+.membership-page {
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(212, 175, 55, 0.1),
+      transparent 35%
+    ),
+    #0a0a0a;
+
+  color: white;
+
+  padding-bottom: 100px;
+}
+
+
+/* MEMBERSHIP HERO */
+
+.membership-hero {
+  max-width: 900px;
+
+  margin: auto;
+
+  padding: 110px 25px 80px;
+
+  text-align: center;
+}
+
+.membership-small-title {
+  color: #d4af37;
+
+  font-size: 12px;
+  font-weight: bold;
+
+  letter-spacing: 4px;
+
+  margin-bottom: 18px;
+}
+
+.membership-hero h1 {
+  font-size: 58px;
+
+  line-height: 1.1;
+
+  margin-bottom: 22px;
+}
+
+.membership-hero h1 span {
+  color: #d4af37;
+}
+
+.membership-hero p {
+  max-width: 650px;
+
+  margin: auto;
+
+  color: #999;
+
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+
+/* MEMBERSHIP PLANS */
+
+.membership-plans {
+  max-width: 1250px;
+
+  margin: 20px auto 0;
+
+  padding: 0 30px;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 25px;
+}
+
+
+/* MEMBERSHIP CARD */
+
+.membership-card {
+  background: #181818;
+
+  border: 1px solid #292929;
+
+  border-radius: 14px;
+
+  padding: 38px 32px;
+
+  position: relative;
+
+  transition: 0.3s ease;
+}
+
+.membership-card:hover {
+  transform: translateY(-10px);
+
+  border-color: #d4af37;
+}
+
+.membership-card.popular {
+  border-color: #d4af37;
+
+  background: #211d10;
+}
+
+
+/* PLAN TOP */
+
+.plan-top {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 28px;
+}
+
+.plan-number {
+  color: #555;
+
+  font-size: 13px;
+  font-weight: bold;
+
+  letter-spacing: 2px;
+}
+
+.plan-duration {
+  color: #777;
+
+  font-size: 11px;
+
+  border: 1px solid #333;
+
+  padding: 7px 10px;
+
+  border-radius: 3px;
+}
+
+
+/* PLAN TITLE */
+
+.membership-card h2 {
+  font-size: 29px;
+
+  margin-bottom: 15px;
+}
+
+
+/* PRICE */
+
+.price {
+  font-size: 42px;
+
+  font-weight: 900;
+
+  margin-bottom: 18px;
+}
+
+.price span {
+  color: #d4af37;
+
+  font-size: 17px;
+
+  margin-right: 5px;
+}
+
+
+/* DESCRIPTION */
+
+.plan-description {
+  color: #888;
+
+  font-size: 14px;
+  line-height: 1.7;
+
+  margin-bottom: 25px;
+}
+
+
+/* LINE */
+
+.plan-line {
+  width: 100%;
+  height: 1px;
+
+  background: #2c2c2c;
+
+  margin-bottom: 27px;
+}
+
+
+/* FEATURES */
+
+.membership-card ul {
+  list-style: none;
+
+  padding: 0;
+
+  margin-bottom: 30px;
+}
+
+.membership-card ul li {
+  color: #c5c5c5;
+
+  font-size: 14px;
+
+  margin-bottom: 15px;
+}
+
+
+/* MEMBERSHIP BUTTON */
+
+.membership-btn {
+  width: 100%;
+
+  padding: 15px 20px;
+
+  background: #d4af37;
+  color: #111;
+
+  border: 1px solid #d4af37;
+  border-radius: 5px;
+
+  font-size: 13px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  transition: 0.3s ease;
+}
+
+.membership-btn:hover {
+  background: transparent;
+  color: #d4af37;
+}
+
+
+/* POPULAR BADGE */
+
+.popular-badge {
+  position: absolute;
+
+  top: 0;
+  right: 25px;
+
+  background: #d4af37;
+  color: #111;
+
+  padding: 8px 15px;
+
+  font-size: 10px;
+  font-weight: bold;
+
+  border-radius: 0 0 5px 5px;
+}
+
+
+/* =====================================================
+   MEMBERSHIP BOTTOM
+===================================================== */
+
+.membership-bottom {
+  width: 100%;
+
+  margin-top: 80px;
+
+  padding: 80px 8%;
+
+  background: #151515;
+
+  border-top: 1px solid rgba(212, 175, 55, 0.25);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 60px;
+}
+
+.membership-cta-content {
+  max-width: 650px;
+}
+
+.membership-cta-content > span {
+  display: block;
+
+  color: #d4af37;
+
+  font-size: 13px;
+  font-weight: bold;
+
+  letter-spacing: 4px;
+
+  margin-bottom: 18px;
+}
+
+.membership-cta-content h2 {
+  font-size: 50px;
+
+  line-height: 1.1;
+}
+
+.membership-cta-content h2 strong {
+  display: block;
+
+  color: #d4af37;
+}
+
+.membership-cta-content p {
+  margin-top: 25px;
+
+  color: #aaa;
+
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+
+/* CTA BUTTONS */
+
+.membership-cta-buttons {
+  display: flex;
+
+  gap: 15px;
+
+  margin-top: 32px;
+}
+
+.membership-contact-btn {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px 26px;
+
+  border: 1px solid #d4af37;
+
+  color: white;
+
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.membership-contact-btn:hover {
+  background: #d4af37;
+  color: #111;
+}
+
+
+/* STATS */
+
+.membership-stats {
+  display: flex;
+
+  gap: 30px;
+}
+
+.membership-stats > div {
+  min-width: 100px;
+
+  text-align: center;
+
+  padding-left: 20px;
+
+  border-left: 1px solid #333;
+}
+
+.membership-stats > div:first-child {
+  border-left: none;
+}
+
+.membership-stats strong {
+  display: block;
+
+  color: #d4af37;
+
+  font-size: 30px;
+
+  margin-bottom: 8px;
+}
+
+.membership-stats span {
+  display: block;
+
+  color: #888;
+
+  font-size: 10px;
+
+  letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   AUTH PAGE
+===================================================== */
+
+.auth-page {
+  min-height: 100vh;
+
+  background: #111;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px 20px;
+}
+
+.auth-box {
+  width: 100%;
+  max-width: 450px;
+
+  background: #1b1b1b;
+
+  border: 1px solid #333;
+  border-radius: 14px;
+
+  padding: 40px;
+
+  text-align: center;
+
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6);
+}
+
+
+/* AUTH LOGO */
+
+.auth-logo {
+  width: 65px;
+  height: 65px;
+
+  margin: 0 auto 20px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid #d4af37;
+  border-radius: 50%;
+
+  color: #d4af37;
+
+  font-size: 22px;
+  font-weight: bold;
+}
+
+
+/* AUTH HEADING */
+
+.auth-box h1 {
+  color: white;
+
+  font-size: 25px;
+
+  margin-bottom: 10px;
+}
+
+.auth-box h1 span {
+  color: #d4af37;
+}
+
+.auth-subtitle {
+  color: #999;
+
+  font-size: 14px;
+  line-height: 1.5;
+
+  margin-bottom: 30px;
+}
+
+
+/* AUTH FIELDS */
+
+.auth-field {
+  width: 100%;
+
+  text-align: left;
+
+  margin-bottom: 20px;
+}
+
+.auth-field label {
+  display: block;
+
+  color: #d4af37;
+
+  font-size: 12px;
+  font-weight: bold;
+
+  letter-spacing: 1px;
+
+  margin-bottom: 8px;
+}
+
+.auth-field input {
+  width: 100%;
+
+  padding: 14px;
+
+  background: #111;
+
+  color: white;
+
+  border: 1px solid #444;
+
+  border-radius: 6px;
+
+  font-size: 15px;
+
+  outline: none;
+}
+
+.auth-field input:focus {
+  border-color: #d4af37;
+}
+
+
+/* PASSWORD */
+
+.password-box {
+  position: relative;
+}
+
+.password-box input {
+  padding-right: 50px;
+}
+
+.password-eye {
+  position: absolute;
+
+  right: 12px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  background: none;
+
+  border: none;
+
+  color: #aaa;
+
+  font-size: 18px;
+
+  cursor: pointer;
+}
+
+.password-eye:hover {
+  color: #d4af37;
+}
+
+
+/* AUTH BUTTON */
+
+.auth-btn {
+  width: 100%;
+
+  padding: 14px;
+
+  background: #d4af37;
+
+  color: #111;
+
+  border: none;
+  border-radius: 6px;
+
+  font-size: 15px;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.auth-btn:hover {
+  background: white;
+}
+
+
+/* AUTH SWITCH */
+
+.auth-switch {
+  margin-top: 25px;
+
+  color: #999;
+
+  font-size: 14px;
+}
+
+.auth-switch button {
+  margin-left: 6px;
+
+  background: none;
+  border: none;
+
+  color: #d4af37;
+
+  font-size: 14px;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+  background: #111;
+
+  color: white;
+
+  padding: 60px 8% 0;
+
+  border-top: 1px solid #d4af37;
+}
+
+.footer-content {
+  display: grid;
+
+  grid-template-columns: 2fr 1fr 1fr;
+
+  gap: 50px;
+
+  max-width: 1200px;
+
+  margin: auto;
+
+  padding-bottom: 45px;
+}
+
+.footer-brand h2 {
+  font-size: 28px;
+
+  margin-bottom: 15px;
+}
+
+.footer-brand h2 span {
+  color: #d4af37;
+}
+
+.footer-brand p {
+  color: #aaa;
+
+  line-height: 1.6;
+}
+
+.footer h3 {
+  color: #d4af37;
+
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.footer-links a {
+  color: #ccc;
+
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: #d4af37;
+}
+
+.footer-contact p {
+  color: #ccc;
+
+  margin-bottom: 12px;
+}
+
+.footer-bottom {
+  border-top: 1px solid #333;
+
+  text-align: center;
+
+  padding: 20px 0;
+
+  color: #888;
+
+  font-size: 14px;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+
+  .navbar {
+    padding: 0 30px;
+  }
+
+  .trainer-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .program-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .membership-plans {
+    grid-template-columns: 1fr;
+
+    max-width: 600px;
+  }
+
+  .membership-bottom {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .membership-stats {
+    width: 100%;
+
+    justify-content: space-between;
+  }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 800px) {
+
+  /* NAVBAR */
+
+  .navbar {
+    height: 75px;
+
+    padding: 0 20px;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+
+    position: absolute;
+
+    top: 75px;
+    left: 0;
+
+    width: 100%;
+
+    background: #111;
+
+    flex-direction: column;
+
+    gap: 0;
+
+    padding: 15px 20px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    width: 100%;
+
+    padding: 16px 10px;
+
+    border-bottom: 1px solid #222;
+  }
+
+  .navbar-btn {
+    display: none;
+  }
+
+  .navbar-actions {
+    display: none;
+  }
+
+
+  /* HERO */
+
+  .hero {
+    min-height: 85vh;
+
+    padding: 50px 25px;
+  }
+
+  .hero-content h1 {
+    font-size: 42px;
+  }
+
+  .hero-content p {
+    font-size: 17px;
+
+    line-height: 1.6;
+  }
+
+
+  /* ABOUT */
+
+  .about {
+    padding: 70px 25px;
+  }
+
+  .about-content h2 {
+    font-size: 36px;
+  }
+
+
+  /* TRAINERS */
+
+  .trainers {
+    padding: 70px 20px;
+  }
+
+  .trainer-cards {
+    grid-template-columns: 1fr;
+
+    max-width: 350px;
+  }
+
+  .trainer-card img {
+    height: 300px;
+  }
+
+
+  /* PROGRAMS */
+
+  .programs {
+    padding: 70px 20px;
+  }
+
+  .programs-heading h2 {
+    font-size: 34px;
+  }
+
+  .program-cards {
+    grid-template-columns: 1fr;
+
+    max-width: 400px;
+  }
+
+
+  /* CONTACT */
+
+  .contact {
+    padding: 70px 15px;
+  }
+
+  .contact h2 {
+    font-size: 32px;
+  }
+
+  .join-form {
+    grid-template-columns: 1fr;
+
+    padding: 25px 18px;
+  }
+
+  .join-form textarea,
+  .join-form button {
+    grid-column: 1;
+  }
+
+
+  /* MEMBERSHIP */
+
+  .membership-hero {
+    padding: 75px 20px 55px;
+  }
+
+  .membership-hero h1 {
+    font-size: 35px;
+  }
+
+  .membership-plans {
+    padding: 0 18px;
+  }
+
+  .membership-card {
+    padding: 32px 24px;
+  }
+
+  .membership-bottom {
+    margin-top: 50px;
+
+    padding: 55px 20px;
+  }
+
+  .membership-cta-content h2 {
+    font-size: 38px;
+  }
+
+  .membership-cta-buttons {
+    width: 100%;
+
+    flex-direction: column;
+  }
+
+  .membership-cta-buttons .membership-btn,
+  .membership-contact-btn {
+    width: 100%;
+
+    text-align: center;
+  }
+
+  .membership-stats {
+    width: 100%;
+
+    gap: 10px;
+  }
+
+
+  /* AUTH */
+
+  .auth-page {
+    padding: 20px 15px;
+  }
+
+  .auth-box {
+    padding: 30px 20px;
+  }
+
+  .auth-box h1 {
+    font-size: 21px;
+  }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 450px) {
+
+  .logo-text strong {
+    font-size: 14px;
+  }
+
+  .logo-text span {
+    font-size: 8px;
+  }
+
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .hero-content h1 {
+    font-size: 35px;
+  }
+
+  .membership-hero h1 {
+    font-size: 30px;
+  }
+
+  .membership-stats {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .membership-stats > div {
+    border-left: none;
+
+    text-align: left;
+  }
+
+}
