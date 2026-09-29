@@ -1,4 +1,6 @@
+
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -11,7 +13,7 @@ function Navbar() {
     <nav className="navbar">
 
       {/* LOGO */}
-      <a href="/home" className="logo" onClick={closeMenu}>
+      <Link to="/home" className="logo" onClick={closeMenu}>
         <div className="logo-icon">
           RG
         </div>
@@ -20,35 +22,35 @@ function Navbar() {
           <strong>REHMAN</strong>
           <span>GOLDEN GYM</span>
         </div>
-      </a>
+      </Link>
 
 
       {/* NAVIGATION LINKS */}
       <div className={`nav-links ${menuOpen ? "active" : ""}`}>
 
-        <a href="/home" onClick={closeMenu}>
+        <Link to="/home" onClick={closeMenu}>
           Home
-        </a>
+        </Link>
 
-        <a href="/home#about" onClick={closeMenu}>
+        <Link to="/home#about" onClick={closeMenu}>
           About
-        </a>
+        </Link>
 
-        <a href="/home#trainers" onClick={closeMenu}>
+        <Link to="/home#trainers" onClick={closeMenu}>
           Trainers
-        </a>
+        </Link>
 
-        <a href="/home#programs" onClick={closeMenu}>
+        <Link to="/home#programs" onClick={closeMenu}>
           Programs
-        </a>
+        </Link>
 
-        <a href="/membership" onClick={closeMenu}>
+        <Link to="/membership" onClick={closeMenu}>
           Membership
-        </a>
+        </Link>
 
-        <a href="/home#contact" onClick={closeMenu}>
+        <Link to="/home#contact" onClick={closeMenu}>
           Contact
-        </a>
+        </Link>
 
       </div>
 
@@ -56,13 +58,13 @@ function Navbar() {
       {/* RIGHT SIDE BUTTON */}
       <div className="navbar-actions">
 
-        <a
-          href="/home#contact"
+        <Link
+          to="/home#contact"
           className="navbar-btn"
           onClick={closeMenu}
         >
           JOIN NOW
-        </a>
+        </Link>
 
       </div>
 
