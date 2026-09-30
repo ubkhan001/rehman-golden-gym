@@ -1,22 +1,70 @@
-
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const closeMenu = () => {
     setMenuOpen(false);
   };
 
+  const goToSection = (section) => {
+    closeMenu();
+
+    if (window.location.pathname === "/") {
+      const element = document.getElementById(section);
+
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+
+      return;
+    }
+
+    navigate("/");
+
+    setTimeout(() => {
+      const element = document.getElementById(section);
+
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }, 500);
+  };
+
+  const goHome = () => {
+    closeMenu();
+
+    if (window.location.pathname === "/") {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+
+      return;
+    }
+
+    navigate("/");
+
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }, 500);
+  };
+
   return (
     <nav className="navbar">
-
-      {/* LOGO */}
-      <Link to="/home" className="logo" onClick={closeMenu}>
-        <div className="logo-icon">
-          RG
-        </div>
+      <Link to="/" className="logo" onClick={goHome}>
+        <div className="logo-icon">RG</div>
 
         <div className="logo-text">
           <strong>REHMAN</strong>
@@ -24,60 +72,50 @@ function Navbar() {
         </div>
       </Link>
 
-
-      {/* NAVIGATION LINKS */}
       <div className={`nav-links ${menuOpen ? "active" : ""}`}>
-
-        <Link to="/home" onClick={closeMenu}>
+        <button type="button" onClick={goHome}>
           Home
-        </Link>
+        </button>
 
-        <Link to="/home#about" onClick={closeMenu}>
+        <button type="button" onClick={() => goToSection("about")}>
           About
-        </Link>
+        </button>
 
-        <Link to="/home#trainers" onClick={closeMenu}>
+        <button type="button" onClick={() => goToSection("trainers")}>
           Trainers
-        </Link>
+        </button>
 
-        <Link to="/home#programs" onClick={closeMenu}>
+        <button type="button" onClick={() => goToSection("programs")}>
           Programs
-        </Link>
+        </button>
 
         <Link to="/membership" onClick={closeMenu}>
           Membership
         </Link>
 
-        <Link to="/home#contact" onClick={closeMenu}>
+        <button type="button" onClick={() => goToSection("contact")}>
           Contact
-        </Link>
-
+        </button>
       </div>
 
-
-      {/* RIGHT SIDE BUTTON */}
       <div className="navbar-actions">
-
-        <Link
-          to="/home#contact"
+        <button
+          type="button"
           className="navbar-btn"
-          onClick={closeMenu}
+          onClick={() => goToSection("contact")}
         >
           JOIN NOW
-        </Link>
-
+        </button>
       </div>
 
-
-      {/* MOBILE MENU BUTTON */}
       <button
+        type="button"
         className="menu-btn"
         onClick={() => setMenuOpen(!menuOpen)}
         aria-label="Toggle Menu"
       >
         {menuOpen ? "✕" : "☰"}
       </button>
-
     </nav>
   );
 }

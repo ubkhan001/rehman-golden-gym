@@ -7,9 +7,10 @@ function Membership() {
 
   return (
     <div className="membership-page">
-      {/* HERO */}
       <section className="membership-hero">
-        <span className="membership-small-title">REHMAN GOLDEN GYM</span>
+        <span className="membership-small-title">
+          REHMAN GOLDEN GYM
+        </span>
 
         <h1>
           CHOOSE YOUR <span>MEMBERSHIP</span>
@@ -21,9 +22,7 @@ function Membership() {
         </p>
       </section>
 
-      {/* MEMBERSHIP CARDS */}
       <section className="membership-plans">
-        {/* MONTHLY */}
         <div className="membership-card">
           <div className="plan-top">
             <span className="plan-number">01</span>
@@ -58,7 +57,6 @@ function Membership() {
           </button>
         </div>
 
-        {/* ONLINE */}
         <div className="membership-card popular">
           <div className="popular-badge">MOST POPULAR</div>
 
@@ -89,12 +87,14 @@ function Membership() {
             <li>✓ Competition Preparation</li>
           </ul>
 
-          <button className="membership-btn" onClick={() => joinPlan("Online")}>
+          <button
+            className="membership-btn"
+            onClick={() => joinPlan("Online")}
+          >
             JOIN NOW <span>→</span>
           </button>
         </div>
 
-        {/* basic fee */}
         <div className="membership-card">
           <div className="plan-top">
             <span className="plan-number">03</span>
@@ -119,13 +119,15 @@ function Membership() {
             <li>✓ Progress Tracking</li>
           </ul>
 
-          <button className="membership-btn" onClick={() => joinPlan("Basic Fee")}>
+          <button
+            className="membership-btn"
+            onClick={() => joinPlan("Basic Fee")}
+          >
             JOIN NOW <span>→</span>
           </button>
         </div>
       </section>
 
-      {/* BOTTOM CTA */}
       <section className="membership-bottom">
         <div className="membership-cta-content">
           <span>READY TO START?</span>
@@ -136,8 +138,8 @@ function Membership() {
           </h2>
 
           <p>
-            Choose your membership plan and take the first step toward becoming
-            stronger, healthier and better.
+            Choose your membership plan and take the first step toward
+            becoming stronger, healthier and better.
           </p>
 
           <div className="membership-cta-buttons">
@@ -148,10 +150,12 @@ function Membership() {
               JOIN NOW <span>→</span>
             </button>
 
-            <a href="/home#trainers" className="membership-contact-btn">
+            <a
+              href="/home#trainers"
+              className="membership-contact-btn"
+            >
               CONTACT TRAINER
             </a>
-
           </div>
         </div>
 
