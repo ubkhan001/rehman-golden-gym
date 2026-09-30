@@ -57,8 +57,6 @@ function App() {
       message: formData.get("message"),
     };
 
-    console.log("Admission Data:", userData);
-
     const whatsappMessage = `
 🏋️ NEW GYM ADMISSION
 
@@ -103,9 +101,7 @@ REHMAN GOLDEN GYM
         style={{ backgroundImage: `url(${gymimage})` }}
       >
         <div className="hero-content">
-          <p className="section-title">
-            WELCOME TO REHMAN GOLDEN GYM
-          </p>
+          <p className="section-title">WELCOME TO REHMAN GOLDEN GYM</p>
 
           <h1>
             BUILD YOUR <span>BODY</span>
@@ -134,17 +130,17 @@ REHMAN GOLDEN GYM
           </h2>
 
           <p>
-            Welcome to Rehman Golden Gym, where your fitness journey
-            begins. We provide a professional and motivating environment
-            for everyone who wants to build strength, improve fitness,
-            and achieve their goals.
+            Welcome to Rehman Golden Gym, where your fitness journey begins.
+            We provide a professional and motivating environment for everyone
+            who wants to build strength, improve fitness, and achieve their
+            goals.
           </p>
 
           <p>
             Our experienced trainers guide members with proper training,
-            discipline, and dedication. Whether you are a beginner,
-            athlete, or bodybuilding enthusiast, we have programs
-            designed for your needs.
+            discipline, and dedication. Whether you are a beginner, athlete,
+            or bodybuilding enthusiast, we have programs designed for your
+            needs.
           </p>
 
           <button type="button" onClick={() => goToContact()}>
@@ -170,8 +166,8 @@ REHMAN GOLDEN GYM
             <span>Personal Trainer</span>
 
             <p>
-              Dedicated fitness trainer helping members improve
-              strength, fitness, and body transformation.
+              Dedicated fitness trainer helping members improve strength,
+              fitness, and body transformation.
             </p>
 
             <a
@@ -191,8 +187,8 @@ REHMAN GOLDEN GYM
             <span>Head Trainer</span>
 
             <p>
-              Experienced gym trainer focused on proper workouts,
-              strength development, and member guidance.
+              Experienced gym trainer focused on proper workouts, strength
+              development, and member guidance.
             </p>
 
             <a
@@ -212,8 +208,8 @@ REHMAN GOLDEN GYM
             <span>Fitness Trainer</span>
 
             <p>
-              Helping members stay consistent, build confidence,
-              and reach their fitness goals.
+              Helping members stay consistent, build confidence, and reach
+              their fitness goals.
             </p>
 
             <a
@@ -244,4 +240,209 @@ REHMAN GOLDEN GYM
           >
             <h3>Strength Training</h3>
             <p>
-              Build strength, power, and muscl
+              Build strength, power, and muscle with structured strength
+              training.
+            </p>
+          </div>
+
+          <div
+            className="program-card"
+            onClick={() => goToContact("Bodybuilding")}
+          >
+            <h3>Bodybuilding</h3>
+            <p>
+              Professional bodybuilding focused training for muscle growth
+              and physique development.
+            </p>
+          </div>
+
+          <div
+            className="program-card"
+            onClick={() => goToContact("Fat Loss")}
+          >
+            <h3>Fat Loss</h3>
+            <p>
+              Structured workouts designed to improve fitness and support
+              healthy fat loss.
+            </p>
+          </div>
+
+          <div
+            className="program-card"
+            onClick={() => goToContact("Personal Training")}
+          >
+            <h3>Personal Training</h3>
+            <p>
+              One-to-one guidance with customized workouts based on your
+              goals.
+            </p>
+          </div>
+
+          <div
+            className="program-card"
+            onClick={() => goToContact("Online Training")}
+          >
+            <h3>Online Training</h3>
+            <p>
+              Get training guidance and workout plans even when you cannot
+              visit the gym.
+            </p>
+          </div>
+
+          <div
+            className="program-card"
+            onClick={() => goToContact("Competition Preparation")}
+          >
+            <h3>Competition Preparation</h3>
+            <p>
+              Dedicated preparation for bodybuilding and physique
+              competitions.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="contact" id="contact">
+        <div className="contact-content">
+          <p className="section-title">GET IN TOUCH</p>
+
+          <h2>
+            Gym <span>Admission</span>
+          </h2>
+
+          <p>
+            Fill out the admission form and our team will contact you for
+            further details.
+          </p>
+
+          {!submitted ? (
+            <form className="join-form" onSubmit={handleSubmit}>
+              <input
+                type="text"
+                name="name"
+                placeholder="Full Name"
+                required
+              />
+
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Phone Number"
+                required
+              />
+
+              <input
+                type="email"
+                name="email"
+                placeholder="Email Address"
+              />
+
+              <input
+                type="number"
+                name="age"
+                placeholder="Age"
+                min="10"
+                max="100"
+                required
+              />
+
+              <input
+                type="number"
+                name="weight"
+                placeholder="Weight (kg)"
+              />
+
+              <input
+                type="text"
+                name="height"
+                placeholder="Height (e.g. 5'8)"
+              />
+
+              <select
+                name="program"
+                value={selectedPlan}
+                onChange={(e) => setSelectedPlan(e.target.value)}
+                required
+              >
+                <option value="">Select Program</option>
+                <option value="Basic Membership">Basic Membership</option>
+                <option value="Standard Membership">
+                  Standard Membership
+                </option>
+                <option value="Premium Membership">
+                  Premium Membership
+                </option>
+                <option value="Online Training">Online Training</option>
+                <option value="Strength Training">
+                  Strength Training
+                </option>
+                <option value="Bodybuilding">Bodybuilding</option>
+                <option value="Fat Loss">Fat Loss</option>
+                <option value="Personal Training">
+                  Personal Training
+                </option>
+                <option value="Competition Preparation">
+                  Competition Preparation
+                </option>
+              </select>
+
+              <textarea
+                name="message"
+                placeholder="Tell us about your fitness goals..."
+              ></textarea>
+
+              <button type="submit">SUBMIT ADMISSION</button>
+            </form>
+          ) : (
+            <div className="success-message">
+              <h3>Registration Successful! ✅</h3>
+
+              <p>
+                Your admission request has been received. WhatsApp has been
+                opened with your details.
+              </p>
+            </div>
+          )}
+        </div>
+      </section>
+
+      <footer className="footer">
+        <div className="footer-content">
+          <div className="footer-brand">
+            <h2>
+              REHMAN <span>GOLDEN GYM</span>
+            </h2>
+
+            <p>Train Hard. Stay Strong. Become Better.</p>
+          </div>
+
+          <div>
+            <h3>Quick Links</h3>
+
+            <div className="footer-links">
+              <a href="#home">Home</a>
+              <a href="#about">About</a>
+              <a href="#trainers">Trainers</a>
+              <a href="#programs">Programs</a>
+              <a href="#contact">Contact</a>
+            </div>
+          </div>
+
+          <div className="footer-contact">
+            <h3>Contact</h3>
+
+            <p>📍 Rehman Golden Gym</p>
+            <p>📞 Gym Management</p>
+            <p>💪 Professional Training</p>
+          </div>
+        </div>
+
+        <div className="footer-bottom">
+          <p>© 2026 Rehman Golden Gym. All Rights Reserved.</p>
+        </div>
+      </footer>
+    </>
+  );
+}
+
+export default App;
