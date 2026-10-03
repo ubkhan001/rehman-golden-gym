@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import Navbar from "./component/Navbar";
 
 import gymimage from "./assets/gym.png";
@@ -11,6 +12,7 @@ import "./App.css";
 function App() {
   const [submitted, setSubmitted] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState("");
+  const [errors, setErrors] = useState({});
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -41,6 +43,105 @@ function App() {
     }, 50);
   };
 
+  const validateField = (name, value) => {
+    const cleanValue = value.trim();
+
+    if (name === "name") {
+      if (!cleanValue) {
+        return "Please enter your name.";
+      }
+
+      if (!/^[A-Za-z\s]+$/.test(cleanValue)) {
+        return "Name should contain letters only.";
+      }
+    }
+
+    if (name === "phone") {
+      if (!cleanValue) {
+        return "Please enter your phone number.";
+      }
+
+      if (!/^[0-9+\-\s]{10,15}$/.test(cleanValue)) {
+        return "Please enter a valid phone number.";
+      }
+    }
+
+    if (name === "email") {
+      if (
+        cleanValue &&
+        !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanValue)
+      ) {
+        return "Please enter a valid email address.";
+      }
+    }
+
+    if (name === "age") {
+      if (!cleanValue) {
+        return "Please enter your age.";
+      }
+
+      const age = Number(cleanValue);
+
+      if (age < 10 || age > 100) {
+        return "Age must be between 10 and 100.";
+      }
+    }
+
+    if (name === "weight") {
+      if (cleanValue) {
+        const weight = Number(cleanValue);
+
+        if (weight < 20 || weight > 300) {
+          return "Please enter a valid weight.";
+        }
+      }
+    }
+
+    if (name === "height") {
+      if (cleanValue) {
+        const feetHeight = cleanValue.match(
+          /^(\d{1})['’]\s*(\d{1,2})["”]?$/
+        );
+
+        const cmHeight = Number(cleanValue);
+
+        if (feetHeight) {
+          const feet = Number(feetHeight[1]);
+          const inches = Number(feetHeight[2]);
+
+          if (feet < 3 || feet > 8 || inches < 0 || inches > 11) {
+            return "Please enter a valid height.";
+          }
+        } else if (cmHeight < 100 || cmHeight > 250) {
+          return "Please enter a valid height, for example 5'8 or 170.";
+        }
+      }
+    }
+
+    if (name === "program") {
+      if (!cleanValue) {
+        return "Please select a program.";
+      }
+    }
+
+    return "";
+  };
+
+  const handleFieldChange = (e) => {
+    const { name, value } = e.target;
+
+    if (name === "program") {
+      setSelectedPlan(value);
+    }
+
+    const error = validateField(name, value);
+
+    setErrors((previousErrors) => ({
+      ...previousErrors,
+      [name]: error,
+    }));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -57,6 +158,32 @@ function App() {
       message: formData.get("message"),
     };
 
+    const fieldsToValidate = [
+      "name",
+      "phone",
+      "email",
+      "age",
+      "weight",
+      "height",
+      "program",
+    ];
+
+    const newErrors = {};
+
+    fieldsToValidate.forEach((field) => {
+      const error = validateField(field, userData[field] || "");
+
+      if (error) {
+        newErrors[field] = error;
+      }
+    });
+
+    setErrors(newErrors);
+
+    if (Object.keys(newErrors).length > 0) {
+      return;
+    }
+
     const whatsappMessage = `
 🏋️ NEW GYM ADMISSION
 
@@ -70,7 +197,7 @@ function App() {
 📝 Message: ${userData.message || "No message"}
 
 ━━━━━━━━━━━━━━━━
-REHMAN GOLDEN GYM
+REHMAN GOLD GYM
 ━━━━━━━━━━━━━━━━
 `;
 
@@ -85,6 +212,7 @@ REHMAN GOLDEN GYM
     setSubmitted(true);
     e.target.reset();
     setSelectedPlan("");
+    setErrors({});
 
     setTimeout(() => {
       setSubmitted(false);
@@ -99,7 +227,43 @@ REHMAN GOLDEN GYM
         className="hero"
         id="home"
         style={{ backgroundImage: `url(${gymimage})` }}
+        onPointerMove={(e) => {
+          const rect = e.currentTarget.getBoundingClientRect();
+          const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+          const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+
+          e.currentTarget.style.setProperty("--mouse-x", x);
+          e.currentTarget.style.setProperty("--mouse-y", y);
+        }}
       >
+        <div className="impact-area">
+          <div className="dumbbell">
+            <div className="plates-left">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+
+            <div className="handle"></div>
+
+            <div className="plates-right">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+
+          <div className="impact"></div>
+          <div className="dust dust1"></div>
+          <div className="dust dust2"></div>
+          <div className="dust dust3"></div>
+          <div className="crack crack1"></div>
+          <div className="crack crack2"></div>
+          <div className="crack crack3"></div>
+        </div>
+
         <div className="hero-content">
           <p className="section-title">WELCOME TO REHMAN GOLDEN GYM</p>
 
@@ -130,17 +294,15 @@ REHMAN GOLDEN GYM
           </h2>
 
           <p>
-            Welcome to Rehman Golden Gym, where your fitness journey begins.
-            We provide a professional and motivating environment for everyone
-            who wants to build strength, improve fitness, and achieve their
-            goals.
+            Welcome to Rehman Golden Gym, where your fitness journey begins. We
+            provide a professional and motivating environment for everyone who
+            wants to build strength, improve fitness, and achieve their goals.
           </p>
 
           <p>
             Our experienced trainers guide members with proper training,
-            discipline, and dedication. Whether you are a beginner, athlete,
-            or bodybuilding enthusiast, we have programs designed for your
-            needs.
+            discipline, and dedication. Whether you are a beginner, athlete, or
+            bodybuilding enthusiast, we have programs designed for your needs.
           </p>
 
           <button type="button" onClick={() => goToContact()}>
@@ -251,8 +413,8 @@ REHMAN GOLDEN GYM
           >
             <h3>Bodybuilding</h3>
             <p>
-              Professional bodybuilding focused training for muscle growth
-              and physique development.
+              Professional bodybuilding focused training for muscle growth and
+              physique development.
             </p>
           </div>
 
@@ -273,8 +435,7 @@ REHMAN GOLDEN GYM
           >
             <h3>Personal Training</h3>
             <p>
-              One-to-one guidance with customized workouts based on your
-              goals.
+              One-to-one guidance with customized workouts based on your goals.
             </p>
           </div>
 
@@ -295,8 +456,7 @@ REHMAN GOLDEN GYM
           >
             <h3>Competition Preparation</h3>
             <p>
-              Dedicated preparation for bodybuilding and physique
-              competitions.
+              Dedicated preparation for bodybuilding and physique competitions.
             </p>
           </div>
         </div>
@@ -316,80 +476,126 @@ REHMAN GOLDEN GYM
           </p>
 
           {!submitted ? (
-            <form className="join-form" onSubmit={handleSubmit}>
-              <input
-                type="text"
-                name="name"
-                placeholder="Full Name"
-                required
-              />
+            <form className="join-form" onSubmit={handleSubmit} noValidate>
+              <div className="form-field">
+                {errors.name && (
+                  <p className="field-error">{errors.name}</p>
+                )}
 
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Phone Number"
-                required
-              />
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Full Name"
+                  onChange={handleFieldChange}
+                />
+              </div>
 
-              <input
-                type="email"
-                name="email"
-                placeholder="Email Address"
-              />
+              <div className="form-field">
+                {errors.phone && (
+                  <p className="field-error">{errors.phone}</p>
+                )}
 
-              <input
-                type="number"
-                name="age"
-                placeholder="Age"
-                min="10"
-                max="100"
-                required
-              />
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone Number"
+                  onChange={handleFieldChange}
+                />
+              </div>
 
-              <input
-                type="number"
-                name="weight"
-                placeholder="Weight (kg)"
-              />
+              <div className="form-field">
+                {errors.email && (
+                  <p className="field-error">{errors.email}</p>
+                )}
 
-              <input
-                type="text"
-                name="height"
-                placeholder="Height (e.g. 5'8)"
-              />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email Address"
+                  onChange={handleFieldChange}
+                />
+              </div>
 
-              <select
-                name="program"
-                value={selectedPlan}
-                onChange={(e) => setSelectedPlan(e.target.value)}
-                required
-              >
-                <option value="">Select Program</option>
-                <option value="Basic Membership">Basic Membership</option>
-                <option value="Standard Membership">
-                  Standard Membership
-                </option>
-                <option value="Premium Membership">
-                  Premium Membership
-                </option>
-                <option value="Online Training">Online Training</option>
-                <option value="Strength Training">
-                  Strength Training
-                </option>
-                <option value="Bodybuilding">Bodybuilding</option>
-                <option value="Fat Loss">Fat Loss</option>
-                <option value="Personal Training">
-                  Personal Training
-                </option>
-                <option value="Competition Preparation">
-                  Competition Preparation
-                </option>
-              </select>
+              <div className="form-field">
+                {errors.age && (
+                  <p className="field-error">{errors.age}</p>
+                )}
 
-              <textarea
-                name="message"
-                placeholder="Tell us about your fitness goals..."
-              ></textarea>
+                <input
+                  type="number"
+                  name="age"
+                  placeholder="Age"
+                  min="10"
+                  max="100"
+                  onChange={handleFieldChange}
+                />
+              </div>
+
+              <div className="form-field">
+                {errors.weight && (
+                  <p className="field-error">{errors.weight}</p>
+                )}
+
+                <input
+                  type="number"
+                  name="weight"
+                  placeholder="Weight (kg)"
+                  onChange={handleFieldChange}
+                />
+              </div>
+
+              <div className="form-field">
+                {errors.height && (
+                  <p className="field-error">{errors.height}</p>
+                )}
+
+                <input
+                  type="text"
+                  name="height"
+                  placeholder="Height (e.g. 5'8)"
+                  onChange={handleFieldChange}
+                />
+              </div>
+
+              <div className="form-field">
+                {errors.program && (
+                  <p className="field-error">{errors.program}</p>
+                )}
+
+                <select
+                  name="program"
+                  value={selectedPlan}
+                  onChange={handleFieldChange}
+                >
+                  <option value="">Select Program</option>
+                  <option value="Basic Membership">Basic Membership</option>
+                  <option value="Standard Membership">
+                    Standard Membership
+                  </option>
+                  <option value="Premium Membership">
+                    Premium Membership
+                  </option>
+                  <option value="Online Training">Online Training</option>
+                  <option value="Strength Training">
+                    Strength Training
+                  </option>
+                  <option value="Bodybuilding">Bodybuilding</option>
+                  <option value="Fat Loss">Fat Loss</option>
+                  <option value="Personal Training">
+                    Personal Training
+                  </option>
+                  <option value="Competition Preparation">
+                    Competition Preparation
+                  </option>
+                </select>
+              </div>
+
+              <div className="form-field full-field">
+                <textarea
+                  name="message"
+                  placeholder="Tell us about your fitness goals..."
+                ></textarea>
+              </div>
 
               <button type="submit">SUBMIT ADMISSION</button>
             </form>

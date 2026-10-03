@@ -63,7 +63,7 @@ function Membership() {
           <div className="plan-top">
             <span className="plan-number">02</span>
             <span className="plan-duration">1 MONTH</span>
-          </div>
+          </  div>
 
           <h2>Online</h2>
 

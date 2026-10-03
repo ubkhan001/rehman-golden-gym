@@ -21,7 +21,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #111;
+  background: linear-gradient(90deg, #050505, #17130a, #050505);
+  border-bottom: 2px solid #d4af37;
+  box-shadow: 0 3px 20px rgba(212, 175, 55, 0.35);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -45,6 +47,7 @@ body {
   color: #d4af37;
   font-weight: bold;
   border-radius: 50%;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
 }
 
 .logo-text {
@@ -83,6 +86,7 @@ body {
 .nav-links a:hover,
 .nav-links button:hover {
   color: #d4af37;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
 }
 
 .navbar-actions {
@@ -98,6 +102,7 @@ body {
   font-weight: bold;
   text-decoration: none;
   cursor: pointer;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.35);
 }
 
 .navbar-btn:hover {
@@ -109,7 +114,7 @@ body {
   display: none;
   border: none;
   background: transparent;
-  color: white;
+  color: #d4af37;
   font-size: 28px;
   cursor: pointer;
 }
@@ -123,13 +128,37 @@ body {
   align-items: center;
   padding: 80px;
   position: relative;
+  overflow: hidden;
 }
 
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background:
+    linear-gradient(
+      110deg,
+      rgba(0, 0, 0, 0.9) 0%,
+      rgba(0, 0, 0, 0.7) 35%,
+      rgba(212, 175, 55, 0.3) 65%,
+      rgba(212, 175, 55, 0.18) 80%,
+      rgba(0, 0, 0, 0.85) 100%
+    );
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 220px;
+  background: linear-gradient(
+    to top,
+    rgba(212, 175, 55, 0.28),
+    rgba(212, 175, 55, 0)
+  );
+  pointer-events: none;
 }
 
 .hero-content {
@@ -222,7 +251,7 @@ body {
 
 .trainers {
   padding: 100px 60px;
-  background: #111;
+  background: linear-gradient(180deg, #111, #17130a, #111);
   color: white;
   text-align: center;
 }
@@ -231,13 +260,13 @@ body {
   color: #d4af37;
   font-size: 14px;
   font-weight: bold;
-  letter-spacing: 3px;
-  margin-bottom: 10px;
+  letter-spacing: 4px;
+  margin-bottom: 12px;
 }
 
 .trainers-heading h2 {
   font-size: 42px;
-  margin-bottom: 50px;
+  margin-bottom: 55px;
 }
 
 .trainers-heading h2 span {
@@ -246,7 +275,7 @@ body {
 
 .trainer-cards {
   width: 100%;
-  max-width: 1000px;
+  max-width: 1100px;
   margin: auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -254,29 +283,37 @@ body {
 }
 
 .trainer-card {
-  background: #222;
+  background: linear-gradient(145deg, #242424, #151515);
   border: 1px solid #333;
-  border-radius: 12px;
-  padding: 20px;
+  border-radius: 15px;
+  padding: 18px;
   text-align: center;
-  transition: 0.3s;
+  transition: 0.4s;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
 }
 
 .trainer-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-12px);
   border-color: #d4af37;
+  box-shadow: 0 15px 35px rgba(212, 175, 55, 0.25);
 }
 
 .trainer-card img {
   width: 100%;
-  height: 280px;
+  height: 300px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 12px;
   margin-bottom: 20px;
+  transition: 0.4s;
+}
+
+.trainer-card:hover img {
+  transform: scale(1.04);
 }
 
 .trainer-card h3 {
-  font-size: 23px;
+  font-size: 24px;
   margin-bottom: 8px;
 }
 
@@ -285,7 +322,8 @@ body {
   color: #d4af37;
   font-size: 14px;
   font-weight: bold;
-  margin-bottom: 10px;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
 }
 
 .trainer-card p {
@@ -298,7 +336,7 @@ body {
 .contact-btn {
   display: inline-block;
   margin-top: 20px;
-  padding: 12px 22px;
+  padding: 12px 24px;
   background: #d4af37;
   color: #111;
   text-decoration: none;
@@ -309,6 +347,8 @@ body {
 
 .contact-btn:hover {
   background: white;
+  color: #111;
+  transform: scale(1.05);
 }
 
 .programs {
@@ -459,6 +499,18 @@ body {
   background: white;
 }
 
+.form-error {
+  grid-column: 1 / 3;
+  background: rgba(255, 60, 60, 0.1);
+  border: 1px solid #ff4444;
+  color: #ff5555;
+  padding: 14px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: left;
+}
+
 .success-message {
   max-width: 700px;
   margin: auto;
@@ -481,7 +533,8 @@ body {
 
 .membership-page {
   min-height: 100vh;
-  background: radial-gradient(
+  background:
+    radial-gradient(
       circle at 50% 0%,
       rgba(212, 175, 55, 0.1),
       transparent 35%
@@ -746,6 +799,19 @@ body {
   letter-spacing: 1px;
 }
 
+.footer {
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(212, 175, 55, 0.1),
+      transparent 40%
+    ),
+    #080808;
+  padding: 70px 60px 0;
+  border-top: 2px solid #d4af37;
+  box-shadow: 0 -10px 30px rgba(212, 175, 55, 0.08);
+}
+
 .footer-content {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
@@ -766,36 +832,42 @@ body {
 
 .footer-brand p {
   color: #aaa;
-  line-height: 1.6;
+  line-height: 1.7;
+  max-width: 400px;
 }
 
 .footer h3 {
   color: #d4af37;
   margin-bottom: 20px;
+  font-size: 18px;
+  letter-spacing: 1px;
 }
 
 .footer-links {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .footer-links a {
   color: #ccc;
   text-decoration: none;
+  transition: 0.3s;
 }
 
 .footer-links a:hover {
   color: #d4af37;
+  padding-left: 6px;
 }
 
 .footer-contact p {
   color: #ccc;
   margin-bottom: 12px;
+  line-height: 1.6;
 }
 
 .footer-bottom {
-  border-top: 1px solid #333;
+  border-top: 1px solid rgba(212, 175, 55, 0.3);
   text-align: center;
   padding: 20px 0;
   color: #888;
@@ -930,7 +1002,8 @@ body {
   }
 
   .join-form textarea,
-  .join-form button {
+  .join-form button,
+  .form-error {
     grid-column: 1;
   }
 
@@ -973,6 +1046,15 @@ body {
   .membership-stats {
     width: 100%;
     gap: 10px;
+  }
+
+  .footer {
+    padding: 55px 25px 0;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 35px;
   }
 
   .auth-page {
@@ -1018,5 +1100,254 @@ body {
   .membership-stats > div {
     border-left: none;
     text-align: left;
+  }
+}
+
+.impact-area {
+  position: absolute;
+  width: 430px;
+  height: 600px;
+  right: 5%;
+  top: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.dumbbell {
+  position: absolute;
+  width: 350px;
+  height: 120px;
+  left: 40px;
+  top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: dumbbellFall 4s ease-in infinite;
+  filter:
+    drop-shadow(0 0 8px #d4af37)
+    drop-shadow(0 0 25px rgba(212, 175, 55, 0.6));
+}
+
+.handle {
+  width: 190px;
+  height: 24px;
+  background: linear-gradient(
+    90deg,
+    #111,
+    #555,
+    #d4af37,
+    #fff1a8,
+    #d4af37,
+    #555,
+    #111
+  );
+  border-radius: 20px;
+  box-shadow:
+    inset 0 2px 5px #fff,
+    0 0 10px #d4af37;
+}
+
+.plates-left,
+.plates-right {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.plates-left span,
+.plates-right span {
+  display: block;
+  width: 32px;
+  height: 105px;
+  border-radius: 10px;
+  background: linear-gradient(
+    135deg,
+    #080808,
+    #333,
+    #d4af37,
+    #777,
+    #111
+  );
+  box-shadow:
+    inset 0 0 10px #000,
+    inset 2px 2px 5px rgba(255, 255, 255, 0.4),
+    0 0 10px rgba(212, 175, 55, 0.7);
+}
+
+.plates-left {
+  flex-direction: row-reverse;
+}
+
+.impact {
+  position: absolute;
+  width: 220px;
+  height: 25px;
+  left: 105px;
+  bottom: 55px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.5);
+  box-shadow:
+    0 0 15px #d4af37,
+    0 0 35px rgba(212, 175, 55, 0.8);
+  animation: impact 4s ease-in infinite;
+}
+
+.dust {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 200px;
+  bottom: 65px;
+  border-radius: 50%;
+  background: rgba(210, 210, 210, 0.5);
+  animation: dust 4s ease-in-out infinite;
+}
+
+.dust1 {
+  animation-delay: 0.05s;
+}
+
+.dust2 {
+  animation-delay: 0.15s;
+}
+
+.dust3 {
+  animation-delay: 0.25s;
+}
+
+.crack {
+  position: absolute;
+  width: 80px;
+  height: 3px;
+  left: 175px;
+  bottom: 58px;
+  background: #777;
+  transform-origin: left center;
+  animation: crack 4s ease-out infinite;
+}
+
+.crack1 {
+  transform: rotate(25deg);
+}
+
+.crack2 {
+  transform: rotate(-25deg);
+}
+
+.crack3 {
+  transform: rotate(5deg);
+}
+
+@keyframes dumbbellFall {
+  0% {
+    top: -150px;
+    transform: rotate(-10deg);
+  }
+
+  35% {
+    top: 420px;
+    transform: rotate(8deg);
+  }
+
+  40% {
+    top: 450px;
+    transform: rotate(0deg);
+  }
+
+  48% {
+    top: 450px;
+    transform: rotate(0deg);
+  }
+
+  55% {
+    top: 435px;
+    transform: rotate(-3deg);
+  }
+
+  62% {
+    top: 450px;
+    transform: rotate(2deg);
+  }
+
+  68% {
+    top: 445px;
+    transform: rotate(0deg);
+  }
+
+  78% {
+    top: 450px;
+    transform: rotate(0deg);
+  }
+
+  100% {
+    top: -150px;
+    transform: rotate(-10deg);
+  }
+}
+
+@keyframes impact {
+  0%,
+  43% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+
+  60% {
+    transform: scale(2);
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes dust {
+  0%,
+  45% {
+    transform: translate(0, 0) scale(0);
+    opacity: 0;
+  }
+
+  52% {
+    opacity: 1;
+  }
+
+  70% {
+    transform: translate(-90px, -70px) scale(2);
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes crack {
+  0%,
+  43% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+
+  48% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+
+  65% {
+    transform: scaleX(1.1);
+    opacity: 0.6;
+  }
+
+  80%,
+  100% {
+    transform: scaleX(1.2);
+    opacity: 0;
   }
 }

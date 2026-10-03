@@ -68,7 +68,7 @@ function Navbar() {
 
         <div className="logo-text">
           <strong>REHMAN</strong>
-          <span>GOLDEN GYM</span>
+          <span>GOLD GYM</span>
         </div>
       </Link>
 
